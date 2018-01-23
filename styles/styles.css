@@ -35,7 +35,7 @@ ul {
 
 a {
     text-decoration: none;
-    font-size: 9px;    
+    font-size: 11px;    
     text-transform: uppercase;
 }
 
@@ -48,17 +48,17 @@ h1 {
 
 h2 {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 h3 {
     font-weight: 900;
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
 }
 
 h4 {
-    font-size: 9px;
+    font-size: 11px;
     text-transform: uppercase;
     color: #fc2407;
 }
@@ -68,8 +68,8 @@ h5 {
 }
 
 p {
-    font-size: 11px;
-    line-height: 20px;
+    font-size: 15px;
+    line-height: 1.9;
     color: grey;
 }
 
@@ -77,6 +77,10 @@ p {
     width: 70%;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+i {
+    font-size: 13px;
 }
 
 /* Styling for index.html */
@@ -95,6 +99,7 @@ p {
 
         nav a {
             color: #282727;
+            font-weight: 400;
         }
 
     .navigationBar,
@@ -108,9 +113,9 @@ p {
         width: 10%;
     }
 
-    nav .navigationBar li.hover:hover {
+    nav .navigationBar .hover:hover {
         background: lightgrey;
-        transform: 0.3s;
+        transition: all 0.3s ease-out;
     }
 
     nav .socialBar li,
@@ -138,18 +143,53 @@ p {
         width: 33.33%;
         margin: 0;
         position: relative;
+        top:0;
+        transition: all .3s ease-in-out;
     }
 
     .gallery figcaption {
         position: absolute;
         bottom: 0;
-        background: white;
+        background: #DCDCDC;
         text-align: center;
         bottom: 0;
         left: 0;
         right: 0;
         height: 87px;
+        padding-top: 20px;
     }
+
+    .galleryContainer:nth-child(2n) figcaption {
+        background: white;
+    }
+
+    .galleryContainer figure {
+        position: relative;
+    }
+
+    .galleryContainer:hover,
+    .relatedContainer:hover {
+        box-shadow: 0px 5px 5px grey;
+        top: -10px;
+    }
+
+    .galleryContainer:hover figcaption {
+        background-color: white;
+        transition: all .3s ease-out;
+    }
+
+    .galleryContainer:nth-child(2n):hover figcaption {
+        background: #DCDCDC;
+    }
+
+    article .galleryContainer figcaption {
+        background-color: white;
+    }
+
+    article .galleryContainer figcaption:hover {
+        background-color: lightgrey;
+    }
+
 
     /* Styling for Content Component */
 
@@ -180,6 +220,12 @@ p {
             text-align: right;
             position: relative;
             padding: 40px 0;
+            transition: all 0.3s ease-in-out;
+            left: 0;
+        }
+
+        .oldPost:hover {
+            left: 10px;
         }
 
         .oldPost:after {
@@ -190,7 +236,7 @@ p {
             border-bottom: 5px solid transparent;
             border-left: 5px solid red;
             position: absolute;
-            top: 52px;
+            top: 56px;
             right: -10px;
         }
 
@@ -212,14 +258,14 @@ p {
 
         .articlePost .postDetails h4 {
             color: #282727;
-            width: 30%;
+            width: 20%;
         }
 
         .articlePost .postDetails ul {
             list-style: none;
             width:70%;
             padding-left: 0;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .articlePost .postDetails li {
@@ -258,18 +304,33 @@ p {
     aside {
         width: 20%;
         float: left;
+        padding: 40px 0;
     }
 
         /* Styling for Instagram feed */
         .instagram figure {
-            width: calc(50% - 10px);
+            width: calc(50% - (10px * 1) / 2);
             float: left;
-            margin: 5px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease-in;
+        }
+
+        .instagram figure:hover {
+            transform: scale(1.2);
+        }
+
+
+
+        .instagram figure:nth-last-child(2n) {
+            margin-left: 0;
         }
 
         aside h4.title {
             text-align: center;
             color: #282727;
+            margin-bottom: 10px;
+            margin-top: 0;
         }
 
         .pancakes {
@@ -308,6 +369,14 @@ p {
 
         .popularPosts .post {
             margin-bottom: 30px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            top: 0;
+        }
+
+        .popularPosts .post:hover {
+            top: -10px;
+            box-shadow: 10px 0 10px grey;
         }
 
         .popularPosts .title {
@@ -393,6 +462,13 @@ p {
         float: right;
         color: white;
         font-size: 24px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        top: 0;
+    }
+
+    footer .returnToTop i:hover {
+        top: -10px;
     }
 
 /* Styling for postPage.html */
@@ -400,19 +476,18 @@ p {
     /* Specific Styling for postPage html */
 
     
-    .postPage {
+    header.postPage {
         position: relative;
+        /* background-image: url(images/brooke-lark-2097122.png);
+        width: 100%;
+        height: 500px; */
     }
 
-    .postPage article {
-        border-bottom: 1px solid lightgrey;
-        padding: 20px 0;
-    }
-
+    
     header.postPage {
         margin-bottom: 10px;
     }
-
+    
     .heading {
         position: absolute;
         top: 45%;
@@ -428,19 +503,23 @@ p {
         left: 0;
         background: rgba(0,0,0,0.4);
     }
-
+    
     .subHeading {
         text-align: center;
         color: lightgray;
         font-weight: 400;
     }
-
+    
     .mainHeading {
         color: white;
         letter-spacing: 2px;
         font-weight: 700;
     }
-
+    
+    .postPage article {
+        border-bottom: 1px solid lightgrey;
+        padding: 20px 0;
+    }
     /* styling for articleFooter */
 
         .articleContainer {
@@ -549,6 +628,11 @@ p {
                 float: right;
             }
 
+            .postContainer:last-child figcaption{
+            position: relative;
+            left: 25px;
+            }
+
             .postContainer:last-child {
                 text-align: right;
             }
@@ -563,9 +647,8 @@ p {
                 height: 61px;
                 border-right: 1px solid lightgrey;
                 top: 9px;
-                right: 8px;
+                right: 0;
                 width: 1px;
-                /* display: block; */
             }
 
 
@@ -581,6 +664,7 @@ p {
             width: calc(25% - ((15px * 3) / 4));
             float: left;
             margin-right: 15px;
+            transition: all 0.3s ease-in-out;
         }
 
         .relatedContainer:last-child {
