@@ -152,11 +152,11 @@ i {
         bottom: 0;
         background: #DCDCDC;
         text-align: center;
-        bottom: 0;
+        bottom: 0px;
         left: 0;
         right: 0;
-        height: 87px;
-        padding-top: 20px;
+        height: 95px;
+        padding-top: 5px;
     }
 
     .galleryContainer:nth-child(2n) figcaption {
